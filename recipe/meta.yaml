@@ -1,4 +1,4 @@
-{% set version = '2.0.11' %}
+{% set version = "2.0.12" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rxode2ll_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rxode2ll/rxode2ll_{{ version }}.tar.gz
-  sha256: 43e74c5fa82b27045b8dfe11c7391d5e03a933425b59c7bd6c2abc63f4a2453a
+  sha256: 5bb093a1c7d3e651175c9881266b35216baecc1f9f6831adb5317271085dd5a3
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -64,11 +64,8 @@ about:
   home: https://nlmixr2.github.io/rxode2ll/
   dev_url: https://github.com/nlmixr2/rxode2ll/
   license: GPL-3.0-or-later
-  summary: Provides the log-likelihoods with gradients from 'stan' (Carpenter et al (2015), <arXiv:1509.07164>)
-    needed for generalized log-likelihood estimation in 'nlmixr2' (Fidler et al (2019)
-    <doi:10.1002/psp4.12445>). This is split of to reduce computational burden of recompiling
-    'rxode2' (Wang, Hallow and James (2016) <doi:10.1002/psp4.12052>) which runs the
-    'nlmixr2' models during estimation.
+  summary: Provides the log-likelihoods with gradients from 'stan' (Carpenter et al (2015), <arXiv:1509.07164>) needed for generalized log-likelihood estimation in 'nlmixr2' (Fidler et al (2019) <doi:10.1002/psp4.12445>). This is split of to reduce computational burden of recompiling 'rxode2' (Wang, Hallow and James (2016)
+    <doi:10.1002/psp4.12052>) which runs the 'nlmixr2' models during estimation.
   license_family: GPL3
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
