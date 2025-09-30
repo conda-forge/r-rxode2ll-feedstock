@@ -12,7 +12,7 @@ source:
   sha256: 4071e7921b9d8ea92163dbcb40f1a81dfe5319f1bed5dc8829e8f8e9d949ef33
 
 build:
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -46,6 +46,7 @@ requirements:
     - r-rcppparallel
     - r-stanheaders >=2.21.0.7
     - r-checkmate
+    - tbb-devel                   # [not win]
   run:
     - r-base
     - r-bh >=1.78.0.0
