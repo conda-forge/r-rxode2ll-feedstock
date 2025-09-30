@@ -46,6 +46,7 @@ requirements:
     - r-rcppparallel
     - r-stanheaders >=2.21.0.7
     - r-checkmate
+    - tbb-devel                   # [not win]
   run:
     - r-base
     - r-bh >=1.78.0.0
