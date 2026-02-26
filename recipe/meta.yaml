@@ -1,4 +1,4 @@
-{% set version = "2.0.13" %}
+{% set version = "2.0.14" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rxode2ll_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rxode2ll/rxode2ll_{{ version }}.tar.gz
-  sha256: 4071e7921b9d8ea92163dbcb40f1a81dfe5319f1bed5dc8829e8f8e9d949ef33
+  sha256: b431e191a721a39ddda503682200338c5821a251374df4f26af5425d6d11c10b
 
 build:
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -38,7 +38,10 @@ requirements:
     - {{ posix }}make
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - llvm-openmp                  # [osx]
   host:
+    - llvm-openmp                  # [osx]
+    - libgomp                      # [linux or win]
     - r-base
     - r-bh >=1.78.0.0
     - r-rcpp >=1.0.8
@@ -48,6 +51,8 @@ requirements:
     - r-checkmate
     - tbb-devel                   # [not win]
   run:
+    - llvm-openmp                  # [osx]
+    - libgomp                      # [win]
     - r-base
     - r-bh >=1.78.0.0
     - r-rcpp >=1.0.8
@@ -65,8 +70,8 @@ about:
   home: https://nlmixr2.github.io/rxode2ll/
   dev_url: https://github.com/nlmixr2/rxode2ll/
   license: GPL-3.0-or-later
-  summary: Provides the log-likelihoods with gradients from 'stan' (Carpenter et al (2015), <arXiv:1509.07164>) needed for generalized log-likelihood estimation in 'nlmixr2' (Fidler et al (2019) <doi:10.1002/psp4.12445>). This is split of to reduce computational burden of recompiling 'rxode2' (Wang, Hallow and James (2016)
-    <doi:10.1002/psp4.12052>) which runs the 'nlmixr2' models during estimation.
+  summary: Provides the log-likelihoods with gradients from 'stan' (Carpenter et al (2015), <arXiv:1509.07164>) needed for generalized log-likelihood estimation in 'nlmixr2' (Fidler et al (2019) <doi:10.1002/psp4.12445>). This is split of to reduce computational burden of recompiling 'rxode2' (Wang, Hallow and James 
+    (2016) <doi:10.1002/psp4.12052>) which runs the 'nlmixr2' models during estimation.
   license_family: GPL3
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
