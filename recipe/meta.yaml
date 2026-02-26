@@ -38,7 +38,10 @@ requirements:
     - {{ posix }}make
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
+    - llvm-openmp                  # [osx]
   host:
+    - llvm-openmp                  # [osx]
+    - libgomp                      # [linux or win]
     - r-base
     - r-bh >=1.78.0.0
     - r-rcpp >=1.0.8
@@ -48,6 +51,8 @@ requirements:
     - r-checkmate
     - tbb-devel                   # [not win]
   run:
+    - llvm-openmp                  # [osx]
+    - libgomp                      # [win]
     - r-base
     - r-bh >=1.78.0.0
     - r-rcpp >=1.0.8
